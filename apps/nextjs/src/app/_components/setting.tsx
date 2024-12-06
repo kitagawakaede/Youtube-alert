@@ -23,22 +23,22 @@ function SettingModal({
   onSubmit,
 }: SettingModalProps) {
   const [firstIntervalViews, setFirstIntervalViews] = useState(
-    initialSettings.firstIntervalViews
+    initialSettings.firstIntervalViews,
   );
   const [secondIntervalViews, setSecondIntervalViews] = useState(
-    initialSettings.secondIntervalViews
+    initialSettings.secondIntervalViews,
   );
   const [firstIntervalCtr, setFirstIntervalCtr] = useState(
-    initialSettings.firstIntervalCtr
+    initialSettings.firstIntervalCtr,
   );
   const [secondIntervalCtr, setSecondIntervalCtr] = useState(
-    initialSettings.secondIntervalCtr
+    initialSettings.secondIntervalCtr,
   );
   const [firstIntervalHours, setFirstIntervalHours] = useState(
-    initialSettings.firstIntervalHours
+    initialSettings.firstIntervalHours,
   );
   const [secondIntervalHours, setSecondIntervalHours] = useState(
-    initialSettings.secondIntervalHours
+    initialSettings.secondIntervalHours,
   );
 
   const handleSubmit = (event: React.FormEvent) => {
@@ -56,32 +56,39 @@ function SettingModal({
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-      <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-lg">
-        <div className="flex justify-between items-center mb-6">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+      <div className="w-full max-w-lg rounded-lg bg-white p-6 shadow-lg">
+        <div className="mb-6 flex items-center justify-between">
           <h2 className="text-xl font-bold">{channelName}の基準値設定</h2>
-          <button onClick={onClose} className="text-gray-500 hover:text-gray-700">
+          <button
+            onClick={onClose}
+            className="text-gray-500 hover:text-gray-700"
+          >
             &times;
           </button>
         </div>
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* フォームの各入力項目 */}
           <div>
-            <label className="block text-sm font-medium">第1間隔基準再生回数:</label>
+            <label className="block text-sm font-medium">
+              第1間隔基準再生回数:
+            </label>
             <input
               type="number"
               value={firstIntervalViews}
               onChange={(e) => setFirstIntervalViews(Number(e.target.value))}
-              className="block w-full px-3 py-2 border rounded-md"
+              className="block w-full rounded-md border px-3 py-2"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium">第2間隔基準再生回数:</label>
+            <label className="block text-sm font-medium">
+              第2間隔基準再生回数:
+            </label>
             <input
               type="number"
               value={secondIntervalViews}
               onChange={(e) => setSecondIntervalViews(Number(e.target.value))}
-              className="block w-full px-3 py-2 border rounded-md"
+              className="block w-full rounded-md border px-3 py-2"
             />
           </div>
           <div>
@@ -90,7 +97,7 @@ function SettingModal({
               type="number"
               value={firstIntervalCtr}
               onChange={(e) => setFirstIntervalCtr(Number(e.target.value))}
-              className="block w-full px-3 py-2 border rounded-md"
+              className="block w-full rounded-md border px-3 py-2"
             />
           </div>
           <div>
@@ -99,7 +106,7 @@ function SettingModal({
               type="number"
               value={secondIntervalCtr}
               onChange={(e) => setSecondIntervalCtr(Number(e.target.value))}
-              className="block w-full px-3 py-2 border rounded-md"
+              className="block w-full rounded-md border px-3 py-2"
             />
           </div>
           <div>
@@ -108,7 +115,7 @@ function SettingModal({
               type="number"
               value={firstIntervalHours}
               onChange={(e) => setFirstIntervalHours(Number(e.target.value))}
-              className="block w-full px-3 py-2 border rounded-md"
+              className="block w-full rounded-md border px-3 py-2"
             />
           </div>
           <div>
@@ -117,13 +124,13 @@ function SettingModal({
               type="number"
               value={secondIntervalHours}
               onChange={(e) => setSecondIntervalHours(Number(e.target.value))}
-              className="block w-full px-3 py-2 border rounded-md"
+              className="block w-full rounded-md border px-3 py-2"
             />
           </div>
           <div className="text-right">
             <button
               type="submit"
-              className="px-4 py-2 bg-black text-white rounded-md"
+              className="rounded-md bg-black px-4 py-2 text-white"
             >
               更新
             </button>

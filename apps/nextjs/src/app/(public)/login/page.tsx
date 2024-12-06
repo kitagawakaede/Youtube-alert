@@ -1,6 +1,8 @@
-import { auth, signIn } from "@acme/auth";
 import { redirect } from "next/navigation"; // リダイレクトを実現する
+
+import { auth, signIn } from "@acme/auth";
 import { Button } from "@acme/ui/button";
+
 import { HydrateClient } from "~/trpc/server";
 
 export default async function LoginPage() {
@@ -14,9 +16,9 @@ export default async function LoginPage() {
   // ログインフォーム
   return (
     <HydrateClient>
-      <main className="flex justify-center items-center h-screen bg-gray-100">
-        <div className="text-center p-6 bg-white shadow-md rounded-md">
-          <h1 className="text-2xl font-bold mb-4">ログイン</h1>
+      <main className="flex h-screen items-center justify-center bg-gray-100">
+        <div className="rounded-md bg-white p-6 text-center shadow-md">
+          <h1 className="mb-4 text-2xl font-bold">ログイン</h1>
           <form>
             <Button
               size="lg"
@@ -24,7 +26,7 @@ export default async function LoginPage() {
                 "use server";
                 await signIn("google");
               }}
-              >
+            >
               Sign in with Google
             </Button>
           </form>

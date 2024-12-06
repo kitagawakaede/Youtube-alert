@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+
 import SettingModal from "./setting"; // setting.tsx をインポート
 
 const channels = [
@@ -23,8 +24,8 @@ export default function ChannelPage() {
   }); // 設定を保存
 
   return (
-    <div className="p-4 bg-slate-100 rounded-lg">
-      <h1 className="text-lg font-bold mb-4">監視中のチャンネル</h1>
+    <div className="rounded-lg bg-slate-100 p-4">
+      <h1 className="mb-4 text-lg font-bold">監視中のチャンネル</h1>
       <div className="space-y-2">
         {/* チャンネルリスト */}
         {channels.map((channel) => (
@@ -46,7 +47,7 @@ export default function ChannelPage() {
             setActiveChannel("新規チャンネル");
             setIsSettingOpen(true); // モーダルを開く
           }}
-          className="flex items-center justify-center w-full px-4 py-2 bg-white text-gray-500 border rounded shadow-md cursor-pointer"
+          className="flex w-full cursor-pointer items-center justify-center rounded border bg-white px-4 py-2 text-gray-500 shadow-md"
         >
           <span className="text-lg font-semibold">+ 新規チャンネル追加</span>
         </button>
@@ -83,8 +84,8 @@ function ChannelButton({
 }) {
   return (
     <div
-      className={`flex items-center justify-between w-full px-4 py-2 rounded shadow-md duration-300 ${
-        isSelected ? "bg-black text-white" : "bg-white text-black border"
+      className={`flex w-full items-center justify-between rounded px-4 py-2 shadow-md duration-300 ${
+        isSelected ? "bg-black text-white" : "border bg-white text-black"
       }`}
     >
       <button onClick={onClick} className="flex-1 text-left focus:outline-none">
@@ -95,7 +96,7 @@ function ChannelButton({
           e.stopPropagation(); // 親ボタンのクリックイベントを防止
           onSettingClick();
         }}
-        className={`ml-2 p-1 rounded-full transition ${
+        className={`ml-2 rounded-full p-1 transition ${
           isSelected ? "text-white" : "text-gray-500"
         } hover:bg-gray-200`}
       >
@@ -105,7 +106,7 @@ function ChannelButton({
           viewBox="0 0 24 24"
           strokeWidth="2"
           stroke="currentColor"
-          className="w-5 h-5"
+          className="h-5 w-5"
         >
           <path
             strokeLinecap="round"

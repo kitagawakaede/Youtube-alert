@@ -1,16 +1,13 @@
 //ログインしてるか分岐
-import { auth } from "@acme/auth";
-
 import { redirect } from "next/navigation";
 
+import { auth } from "@acme/auth";
 
 export default async function LoginPage(props: { children: React.ReactNode }) {
-const session = await auth();
-  
+  const session = await auth();
 
   if (!session) {
-    redirect("/login")
+    redirect("/login");
   }
-  return <>{props.children}</>
+  return <>{props.children}</>;
 }
-

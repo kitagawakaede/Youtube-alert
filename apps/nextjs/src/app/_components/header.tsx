@@ -1,12 +1,13 @@
 "use client";
 
 import { Button } from "@acme/ui/button";
+
 import { signOutAction } from "./signOutAction";
 
 export function Header() {
   return (
-    <header className="fixed top-0 left-0 w-full bg-white shadow-md z-10">
-      <div className="container mx-auto flex justify-between items-center py-4 px-6">
+    <header className="fixed left-0 top-0 z-10 w-full bg-white shadow-md">
+      <div className="container mx-auto flex items-center justify-between px-6 py-4">
         <h1 className="text-lg font-bold">YouTube サムネイル</h1>
         <form>
           <Button
